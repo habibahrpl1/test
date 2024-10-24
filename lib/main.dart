@@ -39,14 +39,59 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            // Tambahkan navigasi kembali di sini
-          },
-        ),
         title: Text(widget.title),
         centerTitle: true,
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: const BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: const Text(
+                'Menu',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: const CircleAvatar(
+                backgroundImage: AssetImage(
+                    'assets/image/yummy.jpg'), // Your image path
+              ),
+              title: const Text('Home'),
+              onTap: () {
+                Navigator.pop(context); // Close the drawer
+              },
+            ),
+            ListTile(
+              leading: const CircleAvatar(
+                backgroundImage: AssetImage(
+                    'assets/image/settings.jpg'), // Your image path
+              ),
+              title: const Text('Settings'),
+              onTap: () {
+                // Logic to navigate to the settings page
+                Navigator.pop(context); // Close the drawer
+              },
+            ),
+            ListTile(
+              leading: const CircleAvatar(
+                backgroundImage: AssetImage(
+                    'assets/image/about.jpg'), // Your image path
+              ),
+              title: const Text('About'),
+              onTap: () {
+                // Logic to navigate to the about page
+                Navigator.pop(context); // Close the drawer
+              },
+            ),
+          ],
+        ),
       ),
       body: ListView(
         padding: const EdgeInsets.all(16.0),
